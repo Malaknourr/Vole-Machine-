@@ -1,9 +1,5 @@
 # Vole Machine Simulator
 
-## Overview
-
-The **Vole Machine Simulator** is a virtual machine that mimics the execution of machine-level code using a simplified instruction set. This project provides a structured approach to understanding low-level computing concepts, including memory management, instruction execution, and CPU register handling.
-
 ## Features
 
 - **Memory Simulation**: Implements a memory model where each memory cell holds a 4-digit hexadecimal instruction.
