@@ -1,16 +1,119 @@
 # Vole Machine Simulator
 
-This repository contains a simulation of a **Vole Machine**, a simple virtual machine that consists of multiple components including memory, registers, and an instruction set. The Vole Machine emulator supports basic operations such as **LOAD**, **STORE**, and other control flow instructions, and simulates the execution of machine-level code.
+## Overview
+
+The **Vole Machine Simulator** is a virtual machine that mimics the execution of machine-level code using a simplified instruction set. This project provides a structured approach to understanding low-level computing concepts, including memory management, instruction execution, and CPU register handling.
 
 ## Features
 
-- **Memory Simulator**: Memory is modeled using an array of hexadecimal values, where each memory cell holds a 4-digit hexadecimal instruction.
-- **Registers**: The Vole Machine includes several registers (e.g., Program Counter, Instruction Register) to manage the flow of execution.
-- **Instruction Set**: The machine supports a variety of operations like `LOAD`, `STORE`, `ADD`, `JUMP`, and `HALT` with corresponding opcodes.
-- **Control Flow**: The Vole Machine follows a simple fetch-execute cycle, updating registers and memory as it executes instructions.
+- **Memory Simulation**: Implements a memory model where each memory cell holds a 4-digit hexadecimal instruction.
+- **Register System**: Includes essential registers such as the **Program Counter (PC)**, **Instruction Register (IR)**, and general-purpose registers.
+- **Instruction Set**: Supports fundamental machine-level operations, including arithmetic, data transfer, and control flow.
+- **Execution Cycle**: Implements the Fetch-Decode-Execute cycle to process machine instructions.
+- **Interactive CLI**: Allows users to manually input instructions, load programs, and execute them step by step.
+- **Error Handling**: Detects and handles invalid instructions, memory overflows, and illegal operations.
 
-## Components
+## System Components
 
-- **Memory**: A simulated memory space represented as a series of hexadecimal values, with each memory address holding a 4-digit instruction.
-- **Registers**: The machine includes various registers (e.g., `PC` for Program Counter, `IR` for Instruction Register) to store the current state.
-- **Instruction Set**: Instructions are encoded as 4-digit hexadecimal values, with specific opcodes to control the machine's behavior.
+### 1. Memory
+- A fixed-size memory array storing **4-digit hexadecimal** values.
+- Each instruction is stored as a separate memory entry.
+- Memory is indexed in hexadecimal format.
+
+### 2. Registers
+- **Program Counter (PC):** Points to the next instruction to execute.
+- **Instruction Register (IR):** Holds the currently executing instruction.
+- **General Registers:** Used for arithmetic and logical operations.
+
+### 3. Instruction Set Architecture
+
+| Opcode  | Mnemonic | Description                         |
+|---------|---------|---------------------------------|
+| `10XX`  | `LOAD`  | Load value from memory into register |
+| `20XX`  | `STORE` | Store value from register into memory |
+| `30XX`  | `ADD`   | Add memory value to register |
+| `40XX`  | `SUB`   | Subtract memory value from register |
+| `50XX`  | `JUMP`  | Jump to a memory location |
+| `60XX`  | `JZ`    | Jump if zero flag is set |
+| `70XX`  | `JN`    | Jump if negative flag is set |
+| `C000`  | `HALT`  | Stop execution |
+
+## Getting Started
+
+### Prerequisites
+
+- A **C++ compiler** supporting C++11 or later (e.g., `g++`)
+- A **terminal or command-line interface** for execution
+
+### Installation
+
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/yourusername/vole-machine.git
+   cd vole-machine
+   ```
+
+2. Compile the source code:
+   ```sh
+   g++ -o vole_machine vole_machine.cpp
+   ```
+
+3. Run the simulator:
+   ```sh
+   ./vole_machine
+   ```
+
+## Usage Guide
+
+### Command Line Interface
+
+Upon launching, the simulator presents an interactive menu:
+
+```text
+Enter your choice:
+(A) Load Instructions from File
+(B) Enter Instructions Manually
+(C) Display Memory and Registers
+(D) Execute Instructions
+(E) Exit
+```
+
+### Example Execution
+
+#### Manually Entering Instructions
+```
+> B
+Enter instructions (4-digit hex, type 'C000' to stop):
+> 1001
+> 2002
+> 3003
+> C000
+```
+
+#### Executing Instructions
+```
+> D
+Executing...
+IR: 1001 | PC: 0001
+IR: 2002 | PC: 0002
+IR: 3003 | PC: 0003
+Execution halted.
+```
+
+### Debugging and Inspection
+To display the current state of memory and registers:
+```
+> C
+Memory Dump:
+0000: [1001]  0001: [2002]  0002: [3003]  0003: [C000]
+
+Registers:
+PC: 0003, IR: C000
+```
+
+## Contributing
+Contributions are welcome! Feel free to fork this repository, submit issues, or open pull requests.
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
