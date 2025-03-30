@@ -34,34 +34,7 @@
 | `70XX`  | `JN`    | Jump if negative flag is set |
 | `C000`  | `HALT`  | Stop execution |
 
-## Getting Started
 
-### Prerequisites
-
-- A **C++ compiler** supporting C++11 or later (e.g., `g++`)
-- A **terminal or command-line interface** for execution
-
-### Installation
-
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/yourusername/vole-machine.git
-   cd vole-machine
-   ```
-
-2. Compile the source code:
-   ```sh
-   g++ -o vole_machine vole_machine.cpp
-   ```
-
-3. Run the simulator:
-   ```sh
-   ./vole_machine
-   ```
-
-## Usage Guide
-
-### Command Line Interface
 
 Upon launching, the simulator presents an interactive menu:
 
